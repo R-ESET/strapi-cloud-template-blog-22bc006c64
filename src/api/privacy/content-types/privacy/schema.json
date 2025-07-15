@@ -1,0 +1,61 @@
+{
+  "kind": "singleType",
+  "collectionName": "privacies",
+  "info": {
+    "singularName": "privacy",
+    "pluralName": "privacies",
+    "displayName": "privacy"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Date": {
+      "type": "string"
+    },
+    "subHeading": {
+      "type": "string"
+    },
+    "Introduction": {
+      "type": "string"
+    },
+    "introductionContent": {
+      "type": "text"
+    },
+    "General": {
+      "type": "string"
+    },
+    "generalContent": {
+      "type": "text"
+    },
+    "Reset": {
+      "type": "string"
+    },
+    "resetContent": {
+      "type": "text"
+    },
+    "recreate": {
+      "type": "string"
+    },
+    "recreateContent": {
+      "type": "text"
+    },
+    "DataStorageandSecurity": {
+      "type": "string",
+      "default": " Data Storage and Security"
+    },
+    "DataStorageandSecurityContent": {
+      "type": "text"
+    },
+    "DataStorageandSecurityContentpara2": {
+      "type": "text"
+    },
+    "SharingYourData": {
+      "type": "string"
+    }
+  }
+}
