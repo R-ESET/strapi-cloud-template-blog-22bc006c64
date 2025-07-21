@@ -577,25 +577,12 @@ export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    changesToThisPolicy: Schema.Attribute.String;
-    changesToThisPolicyContent: Schema.Attribute.RichText;
-    contactUs: Schema.Attribute.String;
-    contactUsContent: Schema.Attribute.RichText;
-    cookiesAndWebsitePolicy: Schema.Attribute.String;
+    Content: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    dataRetentionAndDeletion: Schema.Attribute.String;
-    dataRetentionAndDeletionContent: Schema.Attribute.RichText;
-    dataStorageAndSecurity: Schema.Attribute.String;
-    dataStorageAndSecurityContent1: Schema.Attribute.RichText;
-    dataStorageAndSecurityContent2: Schema.Attribute.RichText;
-    Date: Schema.Attribute.String;
-    general: Schema.Attribute.String;
-    generalContent: Schema.Attribute.RichText;
+    Date: Schema.Attribute.RichText;
     Heading: Schema.Attribute.RichText;
-    introduction: Schema.Attribute.String;
-    introductionContent: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -603,27 +590,9 @@ export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    recreate: Schema.Attribute.String;
-    recreateContent: Schema.Attribute.RichText;
-    recreateCookies: Schema.Attribute.String;
-    recreateCookiesContent: Schema.Attribute.Text;
-    reset: Schema.Attribute.String;
-    resetContent: Schema.Attribute.Text;
-    resetCookies: Schema.Attribute.String;
-    resetCookiesContent: Schema.Attribute.Text;
-    sharingYourData: Schema.Attribute.String;
-    sharingYourDataContent1: Schema.Attribute.Text;
-    sharingYourDataContent2: Schema.Attribute.RichText;
-    subHeading: Schema.Attribute.String;
-    thirdParties: Schema.Attribute.String;
-    ThirdPartiesContent: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    userRights: Schema.Attribute.String;
-    userRightsContent1: Schema.Attribute.RichText;
-    userRightsContent2: Schema.Attribute.RichText;
-    userRightsContent3: Schema.Attribute.RichText;
   };
 }
 
