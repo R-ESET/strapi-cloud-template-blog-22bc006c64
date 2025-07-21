@@ -20,19 +20,19 @@
     "subHeading": {
       "type": "string"
     },
-    "Introduction": {
+    "introduction": {
       "type": "string"
     },
     "introductionContent": {
       "type": "text"
     },
-    "General": {
+    "general": {
       "type": "string"
     },
     "generalContent": {
-      "type": "text"
+      "type": "richtext"
     },
-    "Reset": {
+    "reset": {
       "type": "string"
     },
     "resetContent": {
@@ -42,20 +42,76 @@
       "type": "string"
     },
     "recreateContent": {
-      "type": "text"
+      "type": "richtext"
     },
-    "DataStorageandSecurity": {
-      "type": "string",
-      "default": " Data Storage and Security"
-    },
-    "DataStorageandSecurityContent": {
-      "type": "text"
-    },
-    "DataStorageandSecurityContentpara2": {
-      "type": "text"
-    },
-    "SharingYourData": {
+    "dataStorageAndSecurity": {
       "type": "string"
+    },
+    "dataStorageAndSecurityContent1": {
+      "type": "richtext"
+    },
+    "dataStorageAndSecurityContent2": {
+      "type": "richtext"
+    },
+    "sharingYourData": {
+      "type": "string"
+    },
+    "sharingYourDataContent1": {
+      "type": "text"
+    },
+    "sharingYourDataContent2": {
+      "type": "richtext"
+    },
+    "thirdParties": {
+      "type": "string"
+    },
+    "ThirdPartiesContent": {
+      "type": "text"
+    },
+    "cookiesAndWebsitePolicy": {
+      "type": "string"
+    },
+    "resetCookies": {
+      "type": "string"
+    },
+    "resetCookiesContent": {
+      "type": "text"
+    },
+    "recreateCookies": {
+      "type": "string"
+    },
+    "recreateCookiesContent": {
+      "type": "text"
+    },
+    "userRights": {
+      "type": "string"
+    },
+    "userRightsContent1": {
+      "type": "richtext"
+    },
+    "userRightsContent2": {
+      "type": "richtext"
+    },
+    "userRightsContent3": {
+      "type": "richtext"
+    },
+    "dataRetentionAndDeletion": {
+      "type": "string"
+    },
+    "dataRetentionAndDeletionContent": {
+      "type": "richtext"
+    },
+    "changesToThisPolicy": {
+      "type": "string"
+    },
+    "changesToThisPolicyContent": {
+      "type": "richtext"
+    },
+    "contactUs": {
+      "type": "string"
+    },
+    "contactUsContent": {
+      "type": "richtext"
     }
   }
 }
