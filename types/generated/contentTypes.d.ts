@@ -568,6 +568,93 @@ export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiREsetPrivacyREsetPrivacy extends Struct.SingleTypeSchema {
+  collectionName: 'r_eset_privacies';
+  info: {
+    displayName: 'reset-privacy';
+    pluralName: 'r-eset-privacies';
+    singularName: 'r-eset-privacy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-eset-privacy.r-eset-privacy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiREsetTermREsetTerm extends Struct.SingleTypeSchema {
+  collectionName: 'r_eset_terms';
+  info: {
+    displayName: 'reset-term';
+    pluralName: 'r-eset-terms';
+    singularName: 'r-eset-term';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-eset-term.r-eset-term'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTermTerm extends Struct.SingleTypeSchema {
+  collectionName: 'terms';
+  info: {
+    displayName: 'term';
+    pluralName: 'terms';
+    singularName: 'term';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::term.term'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1083,6 +1170,9 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::privacy.privacy': ApiPrivacyPrivacy;
+      'api::r-eset-privacy.r-eset-privacy': ApiREsetPrivacyREsetPrivacy;
+      'api::r-eset-term.r-eset-term': ApiREsetTermREsetTerm;
+      'api::term.term': ApiTermTerm;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "r_eset_privacies",
+  "info": {
+    "singularName": "r-eset-privacy",
+    "pluralName": "r-eset-privacies",
+    "displayName": "reset-privacy"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Date": {
+      "type": "richtext"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}
