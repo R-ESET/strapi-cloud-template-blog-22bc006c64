@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reset_blogs",
+  "info": {
+    "singularName": "reset-blog",
+    "pluralName": "reset-blogs",
+    "displayName": "reset-blog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "blocks"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}

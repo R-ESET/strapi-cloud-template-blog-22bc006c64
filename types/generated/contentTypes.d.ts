@@ -628,6 +628,37 @@ export interface ApiREsetTermREsetTerm extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiResetBlogResetBlog extends Struct.CollectionTypeSchema {
+  collectionName: 'reset_blogs';
+  info: {
+    displayName: 'reset-blog';
+    pluralName: 'reset-blogs';
+    singularName: 'reset-blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
+    Heading: Schema.Attribute.Blocks;
+    Image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::reset-blog.reset-blog'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTermTerm extends Struct.SingleTypeSchema {
   collectionName: 'terms';
   info: {
@@ -1172,6 +1203,7 @@ declare module '@strapi/strapi' {
       'api::privacy.privacy': ApiPrivacyPrivacy;
       'api::r-eset-privacy.r-eset-privacy': ApiREsetPrivacyREsetPrivacy;
       'api::r-eset-term.r-eset-term': ApiREsetTermREsetTerm;
+      'api::reset-blog.reset-blog': ApiResetBlogResetBlog;
       'api::term.term': ApiTermTerm;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
