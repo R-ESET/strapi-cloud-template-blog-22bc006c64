@@ -646,6 +646,7 @@ export interface ApiResetBlogResetBlog extends Struct.CollectionTypeSchema {
     Date: Schema.Attribute.Date;
     Heading: Schema.Attribute.RichText;
     Image: Schema.Attribute.Media<'images'>;
+    Introduction: Schema.Attribute.RichText;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -653,6 +654,7 @@ export interface ApiResetBlogResetBlog extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
