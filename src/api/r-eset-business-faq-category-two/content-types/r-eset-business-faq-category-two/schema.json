@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "r_eset_business_faq_category_twos",
+  "info": {
+    "singularName": "r-eset-business-faq-category-two",
+    "pluralName": "r-eset-business-faq-category-twos",
+    "displayName": "R-ESET Business FAQ Category Two"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "category_threes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::r-eset-business-faq-category-three.r-eset-business-faq-category-three",
+      "mappedBy": "category_two"
+    }
+  }
+}

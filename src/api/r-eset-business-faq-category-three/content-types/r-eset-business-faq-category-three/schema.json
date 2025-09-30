@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "r_eset_business_faq_category_threes",
+  "info": {
+    "singularName": "r-eset-business-faq-category-three",
+    "pluralName": "r-eset-business-faq-category-threes",
+    "displayName": "R-ESET Business FAQ Category Three"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "category_two": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::r-eset-business-faq-category-two.r-eset-business-faq-category-two",
+      "inversedBy": "category_threes"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::r-eset-business-faq-article.r-eset-business-faq-article",
+      "mappedBy": "category_three"
+    }
+  }
+}

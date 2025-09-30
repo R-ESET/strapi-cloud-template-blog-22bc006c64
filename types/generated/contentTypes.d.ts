@@ -568,6 +568,113 @@ export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiREsetBusinessFaqArticleREsetBusinessFaqArticle
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'r_eset_business_faq_articles';
+  info: {
+    displayName: 'R-ESET Business FAQ Article';
+    pluralName: 'r-eset-business-faq-articles';
+    singularName: 'r-eset-business-faq-article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category_three: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::r-eset-business-faq-category-three.r-eset-business-faq-category-three'
+    >;
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-eset-business-faq-article.r-eset-business-faq-article'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiREsetBusinessFaqCategoryThreeREsetBusinessFaqCategoryThree
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'r_eset_business_faq_category_threes';
+  info: {
+    displayName: 'R-ESET Business FAQ Category Three';
+    pluralName: 'r-eset-business-faq-category-threes';
+    singularName: 'r-eset-business-faq-category-three';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-eset-business-faq-article.r-eset-business-faq-article'
+    >;
+    category_two: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::r-eset-business-faq-category-two.r-eset-business-faq-category-two'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-eset-business-faq-category-three.r-eset-business-faq-category-three'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiREsetBusinessFaqCategoryTwoREsetBusinessFaqCategoryTwo
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'r_eset_business_faq_category_twos';
+  info: {
+    displayName: 'R-ESET Business FAQ Category Two';
+    pluralName: 'r-eset-business-faq-category-twos';
+    singularName: 'r-eset-business-faq-category-two';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category_threes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-eset-business-faq-category-three.r-eset-business-faq-category-three'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-eset-business-faq-category-two.r-eset-business-faq-category-two'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiREsetPrivacyREsetPrivacy extends Struct.SingleTypeSchema {
   collectionName: 'r_eset_privacies';
   info: {
@@ -1203,6 +1310,9 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::privacy.privacy': ApiPrivacyPrivacy;
+      'api::r-eset-business-faq-article.r-eset-business-faq-article': ApiREsetBusinessFaqArticleREsetBusinessFaqArticle;
+      'api::r-eset-business-faq-category-three.r-eset-business-faq-category-three': ApiREsetBusinessFaqCategoryThreeREsetBusinessFaqCategoryThree;
+      'api::r-eset-business-faq-category-two.r-eset-business-faq-category-two': ApiREsetBusinessFaqCategoryTwoREsetBusinessFaqCategoryTwo;
       'api::r-eset-privacy.r-eset-privacy': ApiREsetPrivacyREsetPrivacy;
       'api::r-eset-term.r-eset-term': ApiREsetTermREsetTerm;
       'api::reset-blog.reset-blog': ApiResetBlogResetBlog;
