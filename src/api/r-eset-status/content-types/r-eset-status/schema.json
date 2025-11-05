@@ -11,9 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Heading": {
-      "type": "richtext"
-    },
     "Date": {
       "type": "richtext"
     },
