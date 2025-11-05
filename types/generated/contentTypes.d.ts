@@ -705,6 +705,36 @@ export interface ApiREsetPrivacyREsetPrivacy extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiREsetStatusREsetStatus extends Struct.SingleTypeSchema {
+  collectionName: 'r_eset_statuses';
+  info: {
+    displayName: 'reset-status';
+    pluralName: 'r-eset-statuses';
+    singularName: 'r-eset-status';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-eset-status.r-eset-status'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiREsetTermREsetTerm extends Struct.SingleTypeSchema {
   collectionName: 'r_eset_terms';
   info: {
@@ -1314,6 +1344,7 @@ declare module '@strapi/strapi' {
       'api::r-eset-business-faq-category-three.r-eset-business-faq-category-three': ApiREsetBusinessFaqCategoryThreeREsetBusinessFaqCategoryThree;
       'api::r-eset-business-faq-category-two.r-eset-business-faq-category-two': ApiREsetBusinessFaqCategoryTwoREsetBusinessFaqCategoryTwo;
       'api::r-eset-privacy.r-eset-privacy': ApiREsetPrivacyREsetPrivacy;
+      'api::r-eset-status.r-eset-status': ApiREsetStatusREsetStatus;
       'api::r-eset-term.r-eset-term': ApiREsetTermREsetTerm;
       'api::reset-blog.reset-blog': ApiResetBlogResetBlog;
       'api::term.term': ApiTermTerm;
