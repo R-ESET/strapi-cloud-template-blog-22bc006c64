@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "drb_terms",
+  "info": {
+    "singularName": "drb-term",
+    "pluralName": "drb-terms",
+    "displayName": "DRB-term"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Date": {
+      "type": "richtext"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}

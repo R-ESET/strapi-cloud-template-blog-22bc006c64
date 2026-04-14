@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "drsb_statuses",
+  "info": {
+    "singularName": "drsb-status",
+    "pluralName": "drsb-statuses",
+    "displayName": "DRSB-status"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}

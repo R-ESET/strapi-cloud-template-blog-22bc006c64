@@ -4,7 +4,7 @@
   "info": {
     "singularName": "term",
     "pluralName": "terms",
-    "displayName": "term"
+    "displayName": "RB-term"
   },
   "options": {
     "draftAndPublish": true

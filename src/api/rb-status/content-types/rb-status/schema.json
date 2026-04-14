@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "rb_statuses",
+  "info": {
+    "singularName": "rb-status",
+    "pluralName": "rb-statuses",
+    "displayName": "RB-status"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}

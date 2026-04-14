@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "rsb_statuses",
+  "info": {
+    "singularName": "rsb-status",
+    "pluralName": "rsb-statuses",
+    "displayName": "RSB-status"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "drs_statuses",
+  "info": {
+    "singularName": "drs-status",
+    "pluralName": "drs-statuses",
+    "displayName": "DRS-status"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Date": {
+      "type": "richtext"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}

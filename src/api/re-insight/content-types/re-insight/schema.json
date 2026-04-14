@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "re_insights",
+  "info": {
+    "singularName": "re-insight",
+    "pluralName": "re-insights",
+    "displayName": "RE-insight"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}

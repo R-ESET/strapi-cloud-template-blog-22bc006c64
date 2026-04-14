@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "draft_category_threes",
+  "info": {
+    "singularName": "draft-r-eset-business-faq-category-three",
+    "pluralName": "draft-r-eset-business-faq-category-threes",
+    "displayName": "Draft Category Three"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "category_two": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::draft-r-eset-business-faq-category-two.draft-r-eset-business-faq-category-two",
+      "inversedBy": "category_threes"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::draft-r-eset-business-faq-article.draft-r-eset-business-faq-article",
+      "mappedBy": "category_three"
+    }
+  }
+}

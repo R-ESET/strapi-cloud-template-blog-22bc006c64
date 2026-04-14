@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "drb_statuses",
+  "info": {
+    "singularName": "drb-status",
+    "pluralName": "drb-statuses",
+    "displayName": "DRB-status"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}

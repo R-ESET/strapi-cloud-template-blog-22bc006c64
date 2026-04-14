@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "drb_codes",
+  "info": {
+    "singularName": "drb-code",
+    "pluralName": "drb-codes",
+    "displayName": "DRB-code"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Date": {
+      "type": "richtext"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}

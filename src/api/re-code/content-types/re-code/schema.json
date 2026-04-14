@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "re_codes",
+  "info": {
+    "singularName": "re-code",
+    "pluralName": "re-codes",
+    "displayName": "RE-code"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Date": {
+      "type": "richtext"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}

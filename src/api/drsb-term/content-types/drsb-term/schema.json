@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "drsb_terms",
+  "info": {
+    "singularName": "drsb-term",
+    "pluralName": "drsb-terms",
+    "displayName": "DRSB-term"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Date": {
+      "type": "richtext"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}

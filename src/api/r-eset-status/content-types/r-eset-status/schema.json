@@ -4,7 +4,7 @@
   "info": {
     "singularName": "r-eset-status",
     "pluralName": "r-eset-statuses",
-    "displayName": "reset-status"
+    "displayName": "RE-status"
   },
   "options": {
     "draftAndPublish": true

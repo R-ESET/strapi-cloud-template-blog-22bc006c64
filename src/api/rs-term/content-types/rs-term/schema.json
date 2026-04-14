@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "rs_terms",
+  "info": {
+    "singularName": "rs-term",
+    "pluralName": "rs-terms",
+    "displayName": "RS-term"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Date": {
+      "type": "richtext"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}

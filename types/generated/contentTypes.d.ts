@@ -373,35 +373,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAboutAbout extends Struct.SingleTypeSchema {
-  collectionName: 'abouts';
-  info: {
-    description: 'Write about yourself and the content you create';
-    displayName: 'About';
-    pluralName: 'abouts';
-    singularName: 'about';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    blocks: Schema.Attribute.DynamicZone<
-      ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
@@ -509,7 +480,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiCodeCode extends Struct.SingleTypeSchema {
   collectionName: 'codes';
   info: {
-    displayName: 'code';
+    displayName: 'RB-code';
     pluralName: 'codes';
     singularName: 'code';
   };
@@ -533,32 +504,615 @@ export interface ApiCodeCode extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
-  collectionName: 'globals';
+export interface ApiDCodeDCode extends Struct.SingleTypeSchema {
+  collectionName: 'd_codes';
   info: {
-    description: 'Define global settings';
-    displayName: 'Global';
-    pluralName: 'globals';
-    singularName: 'global';
+    displayName: 'DRE-code';
+    pluralName: 'd-codes';
+    singularName: 'd-code';
   };
   options: {
-    draftAndPublish: false;
+    draftAndPublish: true;
   };
   attributes: {
+    Content: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    defaultSeo: Schema.Attribute.Component<'shared.seo', false>;
-    favicon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::global.global'
+      'api::d-code.d-code'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    siteDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    siteName: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDInsightDInsight extends Struct.SingleTypeSchema {
+  collectionName: 'd_insights';
+  info: {
+    displayName: 'DRE-insight';
+    pluralName: 'd-insights';
+    singularName: 'd-insight';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::d-insight.d-insight'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDPrivacyDPrivacy extends Struct.SingleTypeSchema {
+  collectionName: 'd_privacies';
+  info: {
+    displayName: 'DRE-privacy';
+    pluralName: 'd-privacies';
+    singularName: 'd-privacy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::d-privacy.d-privacy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDStatusDStatus extends Struct.SingleTypeSchema {
+  collectionName: 'd_statuses';
+  info: {
+    displayName: 'DRE-status';
+    pluralName: 'd-statuses';
+    singularName: 'd-status';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::d-status.d-status'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDTermDTerm extends Struct.SingleTypeSchema {
+  collectionName: 'd_terms';
+  info: {
+    displayName: 'DRE-term';
+    pluralName: 'd-terms';
+    singularName: 'd-term';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::d-term.d-term'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDraftREsetBusinessFaqArticleDraftREsetBusinessFaqArticle
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'draft_articles';
+  info: {
+    displayName: 'Draft Article';
+    pluralName: 'draft-r-eset-business-faq-articles';
+    singularName: 'draft-r-eset-business-faq-article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category_three: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::draft-r-eset-business-faq-category-three.draft-r-eset-business-faq-category-three'
+    >;
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::draft-r-eset-business-faq-article.draft-r-eset-business-faq-article'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDraftREsetBusinessFaqCategoryThreeDraftREsetBusinessFaqCategoryThree
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'draft_category_threes';
+  info: {
+    displayName: 'Draft Category Three';
+    pluralName: 'draft-r-eset-business-faq-category-threes';
+    singularName: 'draft-r-eset-business-faq-category-three';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::draft-r-eset-business-faq-article.draft-r-eset-business-faq-article'
+    >;
+    category_two: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::draft-r-eset-business-faq-category-two.draft-r-eset-business-faq-category-two'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::draft-r-eset-business-faq-category-three.draft-r-eset-business-faq-category-three'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDraftREsetBusinessFaqCategoryTwoDraftREsetBusinessFaqCategoryTwo
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'draft_category_twos';
+  info: {
+    displayName: 'Draft Category Two';
+    pluralName: 'draft-r-eset-business-faq-category-twos';
+    singularName: 'draft-r-eset-business-faq-category-two';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category_threes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::draft-r-eset-business-faq-category-three.draft-r-eset-business-faq-category-three'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::draft-r-eset-business-faq-category-two.draft-r-eset-business-faq-category-two'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrbCodeDrbCode extends Struct.SingleTypeSchema {
+  collectionName: 'drb_codes';
+  info: {
+    displayName: 'DRB-code';
+    pluralName: 'drb-codes';
+    singularName: 'drb-code';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drb-code.drb-code'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrbPrivacyDrbPrivacy extends Struct.SingleTypeSchema {
+  collectionName: 'drb_privacies';
+  info: {
+    displayName: 'DRB-privacy';
+    pluralName: 'drb-privacies';
+    singularName: 'drb-privacy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drb-privacy.drb-privacy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrbStatusDrbStatus extends Struct.SingleTypeSchema {
+  collectionName: 'drb_statuses';
+  info: {
+    displayName: 'DRB-status';
+    pluralName: 'drb-statuses';
+    singularName: 'drb-status';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drb-status.drb-status'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrbTermDrbTerm extends Struct.SingleTypeSchema {
+  collectionName: 'drb_terms';
+  info: {
+    displayName: 'DRB-term';
+    pluralName: 'drb-terms';
+    singularName: 'drb-term';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drb-term.drb-term'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrsCdoeDrsCdoe extends Struct.SingleTypeSchema {
+  collectionName: 'drs_cdoes';
+  info: {
+    displayName: 'DRS-code';
+    pluralName: 'drs-cdoes';
+    singularName: 'drs-cdoe';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drs-cdoe.drs-cdoe'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrsInsightDrsInsight extends Struct.SingleTypeSchema {
+  collectionName: 'drs_insights';
+  info: {
+    displayName: 'DRS-insight';
+    pluralName: 'drs-insights';
+    singularName: 'drs-insight';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drs-insight.drs-insight'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrsPrivacyDrsPrivacy extends Struct.SingleTypeSchema {
+  collectionName: 'drs_privacies';
+  info: {
+    displayName: 'DRS-privacy';
+    pluralName: 'drs-privacies';
+    singularName: 'drs-privacy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drs-privacy.drs-privacy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrsStatusDrsStatus extends Struct.SingleTypeSchema {
+  collectionName: 'drs_statuses';
+  info: {
+    displayName: 'DRS-status';
+    pluralName: 'drs-statuses';
+    singularName: 'drs-status';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drs-status.drs-status'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrsTermDrsTerm extends Struct.SingleTypeSchema {
+  collectionName: 'drs_terms';
+  info: {
+    displayName: 'DRS-term';
+    pluralName: 'drs-terms';
+    singularName: 'drs-term';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drs-term.drs-term'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrsbPrivacyDrsbPrivacy extends Struct.SingleTypeSchema {
+  collectionName: 'drsb_privacies';
+  info: {
+    displayName: 'DRSB- privacy';
+    pluralName: 'drsb-privacies';
+    singularName: 'drsb-privacy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drsb-privacy.drsb-privacy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrsbStatusDrsbStatus extends Struct.SingleTypeSchema {
+  collectionName: 'drsb_statuses';
+  info: {
+    displayName: 'DRSB-status';
+    pluralName: 'drsb-statuses';
+    singularName: 'drsb-status';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drsb-status.drsb-status'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrsbTermDrsbTerm extends Struct.SingleTypeSchema {
+  collectionName: 'drsb_terms';
+  info: {
+    displayName: 'DRSB-term';
+    pluralName: 'drsb-terms';
+    singularName: 'drsb-term';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drsb-term.drsb-term'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -568,7 +1122,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
   collectionName: 'privacies';
   info: {
-    displayName: 'privacy';
+    displayName: 'RB-privacy';
     pluralName: 'privacies';
     singularName: 'privacy';
   };
@@ -705,7 +1259,7 @@ export interface ApiREsetBusinessFaqCategoryTwoREsetBusinessFaqCategoryTwo
 export interface ApiREsetPrivacyREsetPrivacy extends Struct.SingleTypeSchema {
   collectionName: 'r_eset_privacies';
   info: {
-    displayName: 'reset-privacy';
+    displayName: 'RE-privacy';
     pluralName: 'r-eset-privacies';
     singularName: 'r-eset-privacy';
   };
@@ -735,7 +1289,7 @@ export interface ApiREsetPrivacyREsetPrivacy extends Struct.SingleTypeSchema {
 export interface ApiREsetStatusREsetStatus extends Struct.SingleTypeSchema {
   collectionName: 'r_eset_statuses';
   info: {
-    displayName: 'reset-status';
+    displayName: 'RE-status';
     pluralName: 'r-eset-statuses';
     singularName: 'r-eset-status';
   };
@@ -764,7 +1318,7 @@ export interface ApiREsetStatusREsetStatus extends Struct.SingleTypeSchema {
 export interface ApiREsetTermREsetTerm extends Struct.SingleTypeSchema {
   collectionName: 'r_eset_terms';
   info: {
-    displayName: 'reset-term';
+    displayName: 'RE-term';
     pluralName: 'r-eset-terms';
     singularName: 'r-eset-term';
   };
@@ -782,6 +1336,94 @@ export interface ApiREsetTermREsetTerm extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::r-eset-term.r-eset-term'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRbStatusRbStatus extends Struct.SingleTypeSchema {
+  collectionName: 'rb_statuses';
+  info: {
+    displayName: 'RB-status';
+    pluralName: 'rb-statuses';
+    singularName: 'rb-status';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rb-status.rb-status'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiReCodeReCode extends Struct.SingleTypeSchema {
+  collectionName: 're_codes';
+  info: {
+    displayName: 'RE-code';
+    pluralName: 're-codes';
+    singularName: 're-code';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::re-code.re-code'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiReInsightReInsight extends Struct.SingleTypeSchema {
+  collectionName: 're_insights';
+  info: {
+    displayName: 'RE-insight';
+    pluralName: 're-insights';
+    singularName: 're-insight';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::re-insight.re-insight'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -824,10 +1466,249 @@ export interface ApiResetBlogResetBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiRsCodeRsCode extends Struct.SingleTypeSchema {
+  collectionName: 'rs_codes';
+  info: {
+    displayName: 'RS-code';
+    pluralName: 'rs-codes';
+    singularName: 'rs-code';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rs-code.rs-code'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRsInsightRsInsight extends Struct.SingleTypeSchema {
+  collectionName: 'rs_insights';
+  info: {
+    displayName: 'RS-insight';
+    pluralName: 'rs-insights';
+    singularName: 'rs-insight';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rs-insight.rs-insight'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRsPrivacyRsPrivacy extends Struct.SingleTypeSchema {
+  collectionName: 'rs_privacies';
+  info: {
+    displayName: 'RS-privacy';
+    pluralName: 'rs-privacies';
+    singularName: 'rs-privacy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rs-privacy.rs-privacy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRsStatusRsStatus extends Struct.SingleTypeSchema {
+  collectionName: 'rs_statuses';
+  info: {
+    displayName: 'RS-status';
+    pluralName: 'rs-statuses';
+    singularName: 'rs-status';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rs-status.rs-status'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRsTermRsTerm extends Struct.SingleTypeSchema {
+  collectionName: 'rs_terms';
+  info: {
+    displayName: 'RS-term';
+    pluralName: 'rs-terms';
+    singularName: 'rs-term';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rs-term.rs-term'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRsbPrivacyRsbPrivacy extends Struct.SingleTypeSchema {
+  collectionName: 'rsb_privacies';
+  info: {
+    displayName: 'RSB-privacy';
+    pluralName: 'rsb-privacies';
+    singularName: 'rsb-privacy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rsb-privacy.rsb-privacy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRsbStatusRsbStatus extends Struct.SingleTypeSchema {
+  collectionName: 'rsb_statuses';
+  info: {
+    displayName: 'RSB-status';
+    pluralName: 'rsb-statuses';
+    singularName: 'rsb-status';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rsb-status.rsb-status'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRsbTermRsbTerm extends Struct.SingleTypeSchema {
+  collectionName: 'rsb_terms';
+  info: {
+    displayName: 'RSB-term';
+    pluralName: 'rsb-terms';
+    singularName: 'rsb-term';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rsb-term.rsb-term'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTermTerm extends Struct.SingleTypeSchema {
   collectionName: 'terms';
   info: {
-    displayName: 'term';
+    displayName: 'RB-term';
     pluralName: 'terms';
     singularName: 'term';
   };
@@ -1360,12 +2241,30 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::code.code': ApiCodeCode;
-      'api::global.global': ApiGlobalGlobal;
+      'api::d-code.d-code': ApiDCodeDCode;
+      'api::d-insight.d-insight': ApiDInsightDInsight;
+      'api::d-privacy.d-privacy': ApiDPrivacyDPrivacy;
+      'api::d-status.d-status': ApiDStatusDStatus;
+      'api::d-term.d-term': ApiDTermDTerm;
+      'api::draft-r-eset-business-faq-article.draft-r-eset-business-faq-article': ApiDraftREsetBusinessFaqArticleDraftREsetBusinessFaqArticle;
+      'api::draft-r-eset-business-faq-category-three.draft-r-eset-business-faq-category-three': ApiDraftREsetBusinessFaqCategoryThreeDraftREsetBusinessFaqCategoryThree;
+      'api::draft-r-eset-business-faq-category-two.draft-r-eset-business-faq-category-two': ApiDraftREsetBusinessFaqCategoryTwoDraftREsetBusinessFaqCategoryTwo;
+      'api::drb-code.drb-code': ApiDrbCodeDrbCode;
+      'api::drb-privacy.drb-privacy': ApiDrbPrivacyDrbPrivacy;
+      'api::drb-status.drb-status': ApiDrbStatusDrbStatus;
+      'api::drb-term.drb-term': ApiDrbTermDrbTerm;
+      'api::drs-cdoe.drs-cdoe': ApiDrsCdoeDrsCdoe;
+      'api::drs-insight.drs-insight': ApiDrsInsightDrsInsight;
+      'api::drs-privacy.drs-privacy': ApiDrsPrivacyDrsPrivacy;
+      'api::drs-status.drs-status': ApiDrsStatusDrsStatus;
+      'api::drs-term.drs-term': ApiDrsTermDrsTerm;
+      'api::drsb-privacy.drsb-privacy': ApiDrsbPrivacyDrsbPrivacy;
+      'api::drsb-status.drsb-status': ApiDrsbStatusDrsbStatus;
+      'api::drsb-term.drsb-term': ApiDrsbTermDrsbTerm;
       'api::privacy.privacy': ApiPrivacyPrivacy;
       'api::r-eset-business-faq-article.r-eset-business-faq-article': ApiREsetBusinessFaqArticleREsetBusinessFaqArticle;
       'api::r-eset-business-faq-category-three.r-eset-business-faq-category-three': ApiREsetBusinessFaqCategoryThreeREsetBusinessFaqCategoryThree;
@@ -1373,7 +2272,18 @@ declare module '@strapi/strapi' {
       'api::r-eset-privacy.r-eset-privacy': ApiREsetPrivacyREsetPrivacy;
       'api::r-eset-status.r-eset-status': ApiREsetStatusREsetStatus;
       'api::r-eset-term.r-eset-term': ApiREsetTermREsetTerm;
+      'api::rb-status.rb-status': ApiRbStatusRbStatus;
+      'api::re-code.re-code': ApiReCodeReCode;
+      'api::re-insight.re-insight': ApiReInsightReInsight;
       'api::reset-blog.reset-blog': ApiResetBlogResetBlog;
+      'api::rs-code.rs-code': ApiRsCodeRsCode;
+      'api::rs-insight.rs-insight': ApiRsInsightRsInsight;
+      'api::rs-privacy.rs-privacy': ApiRsPrivacyRsPrivacy;
+      'api::rs-status.rs-status': ApiRsStatusRsStatus;
+      'api::rs-term.rs-term': ApiRsTermRsTerm;
+      'api::rsb-privacy.rsb-privacy': ApiRsbPrivacyRsbPrivacy;
+      'api::rsb-status.rsb-status': ApiRsbStatusRsbStatus;
+      'api::rsb-term.rsb-term': ApiRsbTermRsbTerm;
       'api::term.term': ApiTermTerm;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
