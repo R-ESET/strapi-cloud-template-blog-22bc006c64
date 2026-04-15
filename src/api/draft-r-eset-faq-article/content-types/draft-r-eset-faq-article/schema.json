@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "draft-r_eset_business_faq_articles",
+  "collectionName": "draft-r_eset_faq_articles",
   "info": {
-    "singularName": "draft-r-eset-business-faq-article",
-    "pluralName": "draft-r-eset-business-faq-articles",
-    "displayName": "Draft R-ESET Business FAQ Article"
+    "singularName": "draft-r-eset-faq-article",
+    "pluralName": "draft-r-eset-faq-articles",
+    "displayName": "Draft R-ESET FAQ Article"
   },
   "options": {
     "draftAndPublish": true
@@ -25,7 +25,7 @@
     "category_three": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::draft-r-eset-business-faq-category-three.draft-r-eset-business-faq-category-three",
+      "target": "api::draft-r-eset-faq-category-three.draft-r-eset-faq-category-three",
       "inversedBy": "articles"
     }
   }

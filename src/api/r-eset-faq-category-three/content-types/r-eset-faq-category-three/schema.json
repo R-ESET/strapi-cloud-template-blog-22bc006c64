@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "draft-r_eset_business_faq_category_threes",
+  "collectionName": "r_eset_faq_category_threes",
   "info": {
-    "singularName": "draft-r-eset-business-faq-category-three",
-    "pluralName": "draft-r-eset-business-faq-category-threes",
-    "displayName": "Draft R-ESET Business FAQ Category Three"
+    "singularName": "r-eset-faq-category-three",
+    "pluralName": "r-eset-faq-category-threes",
+    "displayName": "R-ESET FAQ Category Three"
   },
   "options": {
     "draftAndPublish": true
@@ -22,13 +22,13 @@
     "category_two": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::draft-r-eset-business-faq-category-two.draft-r-eset-business-faq-category-two",
+      "target": "api::r-eset-faq-category-two.r-eset-faq-category-two",
       "inversedBy": "category_threes"
     },
     "articles": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::draft-r-eset-business-faq-article.draft-r-eset-business-faq-article",
+      "target": "api::r-eset-faq-article.r-eset-faq-article",
       "mappedBy": "category_three"
     }
   }

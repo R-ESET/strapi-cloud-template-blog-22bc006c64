@@ -656,9 +656,9 @@ export interface ApiDTermDTerm extends Struct.SingleTypeSchema {
 
 export interface ApiDraftREsetBusinessFaqArticleDraftREsetBusinessFaqArticle
   extends Struct.CollectionTypeSchema {
-  collectionName: 'draft_articles';
+  collectionName: 'draft-r_eset_business_faq_articles';
   info: {
-    displayName: 'Draft Article';
+    displayName: 'Draft R-ESET Business FAQ Article';
     pluralName: 'draft-r-eset-business-faq-articles';
     singularName: 'draft-r-eset-business-faq-article';
   };
@@ -691,9 +691,9 @@ export interface ApiDraftREsetBusinessFaqArticleDraftREsetBusinessFaqArticle
 
 export interface ApiDraftREsetBusinessFaqCategoryThreeDraftREsetBusinessFaqCategoryThree
   extends Struct.CollectionTypeSchema {
-  collectionName: 'draft_category_threes';
+  collectionName: 'draft-r_eset_business_faq_category_threes';
   info: {
-    displayName: 'Draft Category Three';
+    displayName: 'Draft R-ESET Business FAQ Category Three';
     pluralName: 'draft-r-eset-business-faq-category-threes';
     singularName: 'draft-r-eset-business-faq-category-three';
   };
@@ -729,9 +729,9 @@ export interface ApiDraftREsetBusinessFaqCategoryThreeDraftREsetBusinessFaqCateg
 
 export interface ApiDraftREsetBusinessFaqCategoryTwoDraftREsetBusinessFaqCategoryTwo
   extends Struct.CollectionTypeSchema {
-  collectionName: 'draft_category_twos';
+  collectionName: 'draft-r_eset_business_faq_category_twos';
   info: {
-    displayName: 'Draft Category Two';
+    displayName: 'Draft R-ESET Business FAQ Category Two';
     pluralName: 'draft-r-eset-business-faq-category-twos';
     singularName: 'draft-r-eset-business-faq-category-two';
   };
@@ -750,6 +750,113 @@ export interface ApiDraftREsetBusinessFaqCategoryTwoDraftREsetBusinessFaqCategor
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::draft-r-eset-business-faq-category-two.draft-r-eset-business-faq-category-two'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDraftREsetFaqArticleDraftREsetFaqArticle
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'draft-r_eset_faq_articles';
+  info: {
+    displayName: 'Draft R-ESET FAQ Article';
+    pluralName: 'draft-r-eset-faq-articles';
+    singularName: 'draft-r-eset-faq-article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category_three: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::draft-r-eset-faq-category-three.draft-r-eset-faq-category-three'
+    >;
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::draft-r-eset-faq-article.draft-r-eset-faq-article'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDraftREsetFaqCategoryThreeDraftREsetFaqCategoryThree
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'draft-r_eset_faq_category_threes';
+  info: {
+    displayName: 'Draft R-ESET FAQ Category Three';
+    pluralName: 'draft-r-eset-faq-category-threes';
+    singularName: 'draft-r-eset-faq-category-three';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::draft-r-eset-faq-article.draft-r-eset-faq-article'
+    >;
+    category_two: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::draft-r-eset-faq-category-two.draft-r-eset-faq-category-two'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::draft-r-eset-faq-category-three.draft-r-eset-faq-category-three'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDraftREsetFaqCategoryTwoDraftREsetFaqCategoryTwo
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'draft-r_eset_faq_category_twos';
+  info: {
+    displayName: 'Draft R-ESET FAQ Category Two';
+    pluralName: 'draft-r-eset-faq-category-twos';
+    singularName: 'draft-r-eset-faq-category-two';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category_threes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::draft-r-eset-faq-category-three.draft-r-eset-faq-category-three'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::draft-r-eset-faq-category-two.draft-r-eset-faq-category-two'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -1245,6 +1352,113 @@ export interface ApiREsetBusinessFaqCategoryTwoREsetBusinessFaqCategoryTwo
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::r-eset-business-faq-category-two.r-eset-business-faq-category-two'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiREsetFaqArticleREsetFaqArticle
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'r_eset_faq_articles';
+  info: {
+    displayName: 'R-ESET FAQ Article';
+    pluralName: 'r-eset-faq-articles';
+    singularName: 'r-eset-faq-article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category_three: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::r-eset-faq-category-three.r-eset-faq-category-three'
+    >;
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-eset-faq-article.r-eset-faq-article'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiREsetFaqCategoryThreeREsetFaqCategoryThree
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'r_eset_faq_category_threes';
+  info: {
+    displayName: 'R-ESET FAQ Category Three';
+    pluralName: 'r-eset-faq-category-threes';
+    singularName: 'r-eset-faq-category-three';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-eset-faq-article.r-eset-faq-article'
+    >;
+    category_two: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::r-eset-faq-category-two.r-eset-faq-category-two'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-eset-faq-category-three.r-eset-faq-category-three'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiREsetFaqCategoryTwoREsetFaqCategoryTwo
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'r_eset_faq_category_twos';
+  info: {
+    displayName: 'R-ESET FAQ Category Two';
+    pluralName: 'r-eset-faq-category-twos';
+    singularName: 'r-eset-faq-category-two';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category_threes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-eset-faq-category-three.r-eset-faq-category-three'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::r-eset-faq-category-two.r-eset-faq-category-two'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -2253,6 +2467,9 @@ declare module '@strapi/strapi' {
       'api::draft-r-eset-business-faq-article.draft-r-eset-business-faq-article': ApiDraftREsetBusinessFaqArticleDraftREsetBusinessFaqArticle;
       'api::draft-r-eset-business-faq-category-three.draft-r-eset-business-faq-category-three': ApiDraftREsetBusinessFaqCategoryThreeDraftREsetBusinessFaqCategoryThree;
       'api::draft-r-eset-business-faq-category-two.draft-r-eset-business-faq-category-two': ApiDraftREsetBusinessFaqCategoryTwoDraftREsetBusinessFaqCategoryTwo;
+      'api::draft-r-eset-faq-article.draft-r-eset-faq-article': ApiDraftREsetFaqArticleDraftREsetFaqArticle;
+      'api::draft-r-eset-faq-category-three.draft-r-eset-faq-category-three': ApiDraftREsetFaqCategoryThreeDraftREsetFaqCategoryThree;
+      'api::draft-r-eset-faq-category-two.draft-r-eset-faq-category-two': ApiDraftREsetFaqCategoryTwoDraftREsetFaqCategoryTwo;
       'api::drb-code.drb-code': ApiDrbCodeDrbCode;
       'api::drb-privacy.drb-privacy': ApiDrbPrivacyDrbPrivacy;
       'api::drb-status.drb-status': ApiDrbStatusDrbStatus;
@@ -2269,6 +2486,9 @@ declare module '@strapi/strapi' {
       'api::r-eset-business-faq-article.r-eset-business-faq-article': ApiREsetBusinessFaqArticleREsetBusinessFaqArticle;
       'api::r-eset-business-faq-category-three.r-eset-business-faq-category-three': ApiREsetBusinessFaqCategoryThreeREsetBusinessFaqCategoryThree;
       'api::r-eset-business-faq-category-two.r-eset-business-faq-category-two': ApiREsetBusinessFaqCategoryTwoREsetBusinessFaqCategoryTwo;
+      'api::r-eset-faq-article.r-eset-faq-article': ApiREsetFaqArticleREsetFaqArticle;
+      'api::r-eset-faq-category-three.r-eset-faq-category-three': ApiREsetFaqCategoryThreeREsetFaqCategoryThree;
+      'api::r-eset-faq-category-two.r-eset-faq-category-two': ApiREsetFaqCategoryTwoREsetFaqCategoryTwo;
       'api::r-eset-privacy.r-eset-privacy': ApiREsetPrivacyREsetPrivacy;
       'api::r-eset-status.r-eset-status': ApiREsetStatusREsetStatus;
       'api::r-eset-term.r-eset-term': ApiREsetTermREsetTerm;
