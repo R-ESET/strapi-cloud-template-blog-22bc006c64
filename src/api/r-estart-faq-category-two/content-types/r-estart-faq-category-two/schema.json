@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "r_estart_faq_category_twos",
+  "info": {
+    "singularName": "r-estart-faq-category-two",
+    "pluralName": "r-estart-faq-category-twos",
+    "displayName": "R-ESTART FAQ Category Two"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "category_threes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::r-estart-faq-category-three.r-estart-faq-category-three",
+      "mappedBy": "category_two"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "draft-r_estart_business_faq_category_twos",
+  "info": {
+    "singularName": "draft-r-estart-business-faq-category-two",
+    "pluralName": "draft-r-estart-business-faq-category-twos",
+    "displayName": "Draft R-ESTART Business FAQ Category Two"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "category_threes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::draft-r-estart-business-faq-category-three.draft-r-estart-business-faq-category-three",
+      "mappedBy": "category_two"
+    }
+  }
+}
