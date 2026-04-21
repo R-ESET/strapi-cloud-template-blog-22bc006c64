@@ -1032,7 +1032,7 @@ export interface ApiDraftREstartFaqCategoryTwoDraftREstartFaqCategoryTwo
   attributes: {
     category_threes: Schema.Attribute.Relation<
       'oneToMany',
-      'api::draft-r-eset-faq-category-three.draft-r-eset-faq-category-three'
+      'api::draft-r-estart-faq-category-three.draft-r-estart-faq-category-three'
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

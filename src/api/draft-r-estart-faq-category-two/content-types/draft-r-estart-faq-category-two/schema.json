@@ -22,7 +22,7 @@
     "category_threes": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::draft-r-eset-faq-category-three.draft-r-eset-faq-category-three",
+      "target": "api::draft-r-estart-faq-category-three.draft-r-estart-faq-category-three",
       "mappedBy": "category_two"
     }
   }
