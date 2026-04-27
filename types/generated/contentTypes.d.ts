@@ -1234,6 +1234,39 @@ export interface ApiDrsCdoeDrsCdoe extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiDrsInsightDrsInsight extends Struct.CollectionTypeSchema {
+  collectionName: 'drs_insight';
+  info: {
+    displayName: 'DRS Insight';
+    pluralName: 'drs-insights';
+    singularName: 'drs-insight';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
+    Heading: Schema.Attribute.RichText;
+    Image: Schema.Attribute.Media<'images'>;
+    Introduction: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drs-insight.drs-insight'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDrsPrivacyDrsPrivacy extends Struct.SingleTypeSchema {
   collectionName: 'drs_privacies';
   info: {
@@ -2112,6 +2145,39 @@ export interface ApiRsCodeRsCode extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiRsInsightRsInsight extends Struct.CollectionTypeSchema {
+  collectionName: 'rs_insight';
+  info: {
+    displayName: 'RS Insight';
+    pluralName: 'rs-insights';
+    singularName: 'rs-insight';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
+    Heading: Schema.Attribute.RichText;
+    Image: Schema.Attribute.Media<'images'>;
+    Introduction: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rs-insight.rs-insight'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiRsPrivacyRsPrivacy extends Struct.SingleTypeSchema {
   collectionName: 'rs_privacies';
   info: {
@@ -2853,6 +2919,7 @@ declare module '@strapi/strapi' {
       'api::drb-term.drb-term': ApiDrbTermDrbTerm;
       'api::dre-insight.dre-insight': ApiDreInsightDreInsight;
       'api::drs-cdoe.drs-cdoe': ApiDrsCdoeDrsCdoe;
+      'api::drs-insight.drs-insight': ApiDrsInsightDrsInsight;
       'api::drs-privacy.drs-privacy': ApiDrsPrivacyDrsPrivacy;
       'api::drs-status.drs-status': ApiDrsStatusDrsStatus;
       'api::drs-term.drs-term': ApiDrsTermDrsTerm;
@@ -2880,6 +2947,7 @@ declare module '@strapi/strapi' {
       'api::re-code.re-code': ApiReCodeReCode;
       'api::re-insight.re-insight': ApiReInsightReInsight;
       'api::rs-code.rs-code': ApiRsCodeRsCode;
+      'api::rs-insight.rs-insight': ApiRsInsightRsInsight;
       'api::rs-privacy.rs-privacy': ApiRsPrivacyRsPrivacy;
       'api::rs-status.rs-status': ApiRsStatusRsStatus;
       'api::rs-term.rs-term': ApiRsTermRsTerm;

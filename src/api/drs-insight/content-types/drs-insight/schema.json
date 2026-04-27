@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "drs_insight",
+  "info": {
+    "singularName": "drs-insight",
+    "pluralName": "drs-insights",
+    "displayName": "DRS Insight"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Introduction": {
+      "type": "richtext"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Content": {
+      "type": "richtext"
+    },
+    "Title": {
+      "type": "text"
+    }
+  }
+}
