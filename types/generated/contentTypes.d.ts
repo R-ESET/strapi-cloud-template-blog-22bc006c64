@@ -1171,36 +1171,6 @@ export interface ApiDrbTermDrbTerm extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiDreInsightDreInsight extends Struct.CollectionTypeSchema {
-  collectionName: 'dre_insights';
-  info: {
-    displayName: 'DRE-insight';
-    pluralName: 'dre-insights';
-    singularName: 'dre-insight';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Content: Schema.Attribute.RichText;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Date: Schema.Attribute.RichText;
-    Heading: Schema.Attribute.RichText;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::dre-insight.dre-insight'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiDrsCdoeDrsCdoe extends Struct.SingleTypeSchema {
   collectionName: 'drs_cdoes';
   info: {
@@ -2076,36 +2046,6 @@ export interface ApiReCodeReCode extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiReInsightReInsight extends Struct.CollectionTypeSchema {
-  collectionName: 're_insights';
-  info: {
-    displayName: 'RE-insight';
-    pluralName: 're-insights';
-    singularName: 're-insight';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Content: Schema.Attribute.RichText;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Date: Schema.Attribute.RichText;
-    Heading: Schema.Attribute.RichText;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::re-insight.re-insight'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiResetBlogResetBlog extends Struct.CollectionTypeSchema {
   collectionName: 'reset_blogs';
   info: {
@@ -2938,7 +2878,6 @@ declare module '@strapi/strapi' {
       'api::drb-privacy.drb-privacy': ApiDrbPrivacyDrbPrivacy;
       'api::drb-status.drb-status': ApiDrbStatusDrbStatus;
       'api::drb-term.drb-term': ApiDrbTermDrbTerm;
-      'api::dre-insight.dre-insight': ApiDreInsightDreInsight;
       'api::drs-cdoe.drs-cdoe': ApiDrsCdoeDrsCdoe;
       'api::drs-insight.drs-insight': ApiDrsInsightDrsInsight;
       'api::drs-privacy.drs-privacy': ApiDrsPrivacyDrsPrivacy;
@@ -2966,7 +2905,6 @@ declare module '@strapi/strapi' {
       'api::r-estart-faq-category-two.r-estart-faq-category-two': ApiREstartFaqCategoryTwoREstartFaqCategoryTwo;
       'api::rb-status.rb-status': ApiRbStatusRbStatus;
       'api::re-code.re-code': ApiReCodeReCode;
-      'api::re-insight.re-insight': ApiReInsightReInsight;
       'api::reset-blog.reset-blog': ApiResetBlogResetBlog;
       'api::rs-code.rs-code': ApiRsCodeRsCode;
       'api::rs-insight.rs-insight': ApiRsInsightRsInsight;
