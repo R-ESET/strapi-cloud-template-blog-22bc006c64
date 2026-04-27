@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "re_insights",
+  "collectionName": "dre_insight",
   "info": {
-    "singularName": "re-insight",
-    "pluralName": "re-insights",
-    "displayName": "RE Insight"
+    "singularName": "dre-insight",
+    "pluralName": "dre-insights",
+    "displayName": "DRE Insight"
   },
   "options": {
     "draftAndPublish": true

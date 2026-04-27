@@ -6,4 +6,4 @@
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::re-insights.re-insights');
+module.exports = createCoreController('api::re-insight.re-insight');

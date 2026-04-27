@@ -6,4 +6,4 @@
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::re-insights.re-insights');
+module.exports = createCoreRouter('api::re-insight.re-insight');

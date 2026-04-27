@@ -6,4 +6,4 @@
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::dre-insights.dre-insights');
+module.exports = createCoreService('api::dre-insight.dre-insight');
