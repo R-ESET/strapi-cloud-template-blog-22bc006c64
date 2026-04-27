@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * reset-blog service
+ * re-insights service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::reset-blog.reset-blog');
+module.exports = createCoreService('api::re-insights.re-insights');

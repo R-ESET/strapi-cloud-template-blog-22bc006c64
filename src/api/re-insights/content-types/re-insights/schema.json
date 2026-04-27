@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "reset_blogs",
+  "collectionName": "re_insights",
   "info": {
-    "singularName": "reset-blog",
-    "pluralName": "reset-blogs",
-    "displayName": "reset-blog"
+    "singularName": "re-insight",
+    "pluralName": "re-insights",
+    "displayName": "RE Insight"
   },
   "options": {
     "draftAndPublish": true

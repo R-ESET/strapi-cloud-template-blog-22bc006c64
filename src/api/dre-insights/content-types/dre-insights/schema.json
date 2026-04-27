@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dre_insights",
+  "info": {
+    "singularName": "dre-insight",
+    "pluralName": "dre-insights",
+    "displayName": "DRE Insight"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Introduction": {
+      "type": "richtext"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Content": {
+      "type": "richtext"
+    },
+    "Title": {
+      "type": "text"
+    }
+  }
+}

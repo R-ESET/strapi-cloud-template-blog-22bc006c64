@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * reset-blog router
+ * re-insights router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::reset-blog.reset-blog');
+module.exports = createCoreRouter('api::re-insights.re-insights');
