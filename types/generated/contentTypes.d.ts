@@ -2272,6 +2272,36 @@ export interface ApiRsTermRsTerm extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiRsbCodeRsbCode extends Struct.SingleTypeSchema {
+  collectionName: 'rsb_codes';
+  info: {
+    displayName: 'RSB-code';
+    pluralName: 'rsb-codes';
+    singularName: 'rsb-code';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.RichText;
+    Heading: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rsb-code.rsb-code'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiRsbPrivacyRsbPrivacy extends Struct.SingleTypeSchema {
   collectionName: 'rsb_privacies';
   info: {
@@ -2956,6 +2986,7 @@ declare module '@strapi/strapi' {
       'api::rs-privacy.rs-privacy': ApiRsPrivacyRsPrivacy;
       'api::rs-status.rs-status': ApiRsStatusRsStatus;
       'api::rs-term.rs-term': ApiRsTermRsTerm;
+      'api::rsb-code.rsb-code': ApiRsbCodeRsbCode;
       'api::rsb-privacy.rsb-privacy': ApiRsbPrivacyRsbPrivacy;
       'api::rsb-status.rsb-status': ApiRsbStatusRsbStatus;
       'api::rsb-term.rsb-term': ApiRsbTermRsbTerm;

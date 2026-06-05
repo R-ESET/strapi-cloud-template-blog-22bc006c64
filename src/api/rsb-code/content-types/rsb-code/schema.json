@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "rsb_codes",
+  "info": {
+    "singularName": "rsb-code",
+    "pluralName": "rsb-codes",
+    "displayName": "RSB-code"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "richtext"
+    },
+    "Date": {
+      "type": "richtext"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}
